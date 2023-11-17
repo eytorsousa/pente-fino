@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  php-apache-environment:
+    container_name: php-apache
+    image: php:8.0-apache
+    volumes:
+      - ./php/src:/var/www/html/ 
+      #Nesse campo os usuarios de Windows C:\caminho\para\seu\projeto\php\src:/var/www/html/ será necessário baixar o WSL 
+      #(Subsistema linux), pois é o a pasta root padrão para servidore web. Acredito que no Mac já há essa config de pastas
+    ports:
+      - 8000:80
+  db:
+    container_name: db
+    image: mysql
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} # Passe esse dado no arquivo .env
+        MYSQL_DATABASE: ${MY_DATABASE} # Passe esse dado no arquivo .env
+        MYSQL_USER: ${MYSQL_USER} # Passe esse dado no arquivo .env
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD} # Passe esse dado no arquivo .env
+
+        #Passar na seguinte forma no connection.php
+
+        # $mysqlRootPassword = $_ENV['MYSQL_ROOT_PASSWORD'];
+        # $mysqlDatabase = $_ENV['MYSQL_DATABASE'];
+        # $mysqlUser = $_ENV['MYSQL_USER'];
+        # $mysqlPassword = $_ENV['MYSQL_PASSWORD'];
+
+    ports:
+        - "9906:3306"
+  
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      ports:
+          - '8080:80'
+      restart: always
+      environment:
+          PMA_HOST: db
+      depends_on:
+          - db
+
+     
+
+
+
