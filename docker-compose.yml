@@ -8,7 +8,7 @@ services:
       #Nesse campo os usuarios de Windows C:\caminho\para\seu\projeto\php\src:/var/www/html/ será necessário baixar o WSL 
       #(Subsistema linux), pois é o a pasta root padrão para servidore web. Acredito que no Mac já há essa config de pastas
     ports:
-      - 8000:80
+      - 3000:80
   db:
      container_name: db
      image: mysql
