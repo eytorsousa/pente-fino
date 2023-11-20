@@ -534,6 +534,18 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gap-4 {
+  gap: 1rem;
 }
