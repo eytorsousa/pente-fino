@@ -7,7 +7,7 @@
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
--- O Banco de dados já está criado no phpMyAdmin, basta acessar e rodar os comandos abaixo
+-- O Banco de dados já está criado no phpMyAdmin, basta acessar e rodar os comandos abaixo e não se esqueçam, que ao rodar docker-compose down, tu destrói todas as configs e queries executadas no banco
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
