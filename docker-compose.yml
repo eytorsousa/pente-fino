@@ -1,6 +1,8 @@
 version: '3.8'
 services:
   php-apache-environment:
+    networks:
+      - minha-rede
     container_name: php-apache
     image: pente-fino-img
     build: 
@@ -13,6 +15,8 @@ services:
     ports:
       - '8000:80' #Estou passando a porta 3000, pois estava dando conflito com o apache já instalado, mas podem manter a 8000
     environment:
+          MYSQL_HOST: db
+          MYSQL_PORT: 3306
           MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
           MYSQL_DATABASE: ${MYSQL_DATABASE}
           MYSQL_USER: ${MYSQL_USER}
@@ -26,6 +30,8 @@ services:
          MYSQL_DATABASE: ${MYSQL_DATABASE} # Passe esse dado no arquivo .env
          MYSQL_USER: ${MYSQL_USER} # Passe esse dado no arquivo .env
          MYSQL_PASSWORD: ${MYSQL_PASSWORD} # Passe esse dado no arquivo .env
+     
+     
 
   #       #Passar na seguinte forma no connection.php
 
@@ -36,18 +42,30 @@ services:
 
      ports:
          - "9906:3306"
+     networks:
+         - minha-rede
+
   
   phpmyadmin:
        image: phpmyadmin/phpmyadmin
-       ports:
-           - '8080:80'
+       container_name: phpmyadmin
        restart: always
        environment:
            PMA_HOST: db
+       ports:
+           - '8081:80'
        depends_on:
            - db
+       networks:
+           - minha-rede
+
+networks: 
+    minha-rede: 
+        driver: bridge
+
 
      
+
 
 
 
