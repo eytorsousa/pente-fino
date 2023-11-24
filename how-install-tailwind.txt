@@ -1,8 +1,0 @@
-# Instalar as dependências do Node.js, caso não possua
-npm install
-
-# Instalar o Tailwind CSS
-npm install tailwindcss
-
-# Inicializar o arquivo de configuração do Tailwind 
-npx tailwindcss init

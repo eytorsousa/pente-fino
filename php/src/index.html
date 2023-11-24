@@ -3,19 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../assets/css/dist/output.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Pente Fino</title>
 </head>
-<body class="bg-black">
+<body>
+    <section class="bg-[url('/images/back-1.jpg')] h-screen bg-cover">
     <header>
-        <ul class="flex w-full justify-evenly h-10 p-5 font-['Sancreek'] text-3xl text-white">
+        <ul class="flex w-full justify-evenly h-100px items-center p-5 font-['Sancreek'] text-3xl text-white">
             <li><a href="">Página Inicial</a></li>
             <li><a href="">Sobre</a></li>
-            <li><a href=""><img src="../../assets/images/logo-principal.png" alt="Logo Pente-Fino"></a></li>
+            <li><a href=""><img src="images/logo-principal.png" alt="Logo Pente-Fino" width="100" height="100"></a></li>
             <li><a href="">Agendar</a></li>
-            <li><a href="">Login</a></li>
+            <li><a href="" class="text-ycol">Login</a></li>
+            <li class="absolute right-10"><a href=""><img src="images/icons/user.png" width="32" height="32" alt="Profile"></a></li>
         </ul>
+        
     </header>
+    </section>
 </body>
 </html>
+
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                height: {
+                    '100px': '100px',
+                },
+                colors: {
+                    'ycol': '#ECA72C',
+                }
+            }
+        }
+    }
+</script>
