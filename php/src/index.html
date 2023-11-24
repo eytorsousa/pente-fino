@@ -10,15 +10,20 @@
     <section class="bg-[url('/images/back-1.jpg')] h-screen bg-cover">
     <header>
         <ul class="flex w-full justify-evenly h-100px items-center p-5 font-['Sancreek'] text-3xl text-white">
-            <li><a href="">Página Inicial</a></li>
-            <li><a href="">Sobre</a></li>
+            <li><a href="" class="hover:text-ycol transition">Página Inicial</a></li>
+            <li><a href="" class="hover:text-ycol transition">Sobre</a></li>
             <li><a href=""><img src="images/logo-principal.png" alt="Logo Pente-Fino" width="100" height="100"></a></li>
-            <li><a href="">Agendar</a></li>
-            <li><a href="" class="text-ycol">Login</a></li>
+            <li><a href="" class="hover:text-ycol transition">Agendar</a></li>
+            <li><a href="" class="text-ycol hover:text-white transition">Login</a></li>
             <li class="absolute right-10"><a href=""><img src="images/icons/user.png" width="32" height="32" alt="Profile"></a></li>
         </ul>
+        </header>
         
-    </header>
+        <div class="flex flex-col h-h-calc justify-center font-['Sancreek'] ml-percent-10 w-1/2">
+            <h1 class="text-7xl text-white">A Agenda que vai até você!</h1>
+            <a href="" class="w-full"><button class="w-full mt-9 text-4xl text-white border border-solid border-white p-4">Agende agora</button></a>
+        </div>
+
     </section>
 </body>
 </html>
@@ -29,9 +34,16 @@
             extend: {
                 height: {
                     '100px': '100px',
+                    'h-calc': 'calc(100vh - 100px)',
                 },
                 colors: {
                     'ycol': '#ECA72C',
+                },
+                width: {
+                    'percent-70': '70%',
+                },
+                margin: {
+                    'percent-10': '10%',
                 }
             }
         }
